@@ -32,3 +32,23 @@ body {
   border: 1px solid white;
   /* border-radius: ; */
 }
+
+#user-name {
+  color: white;
+}
+
+#logout-btn {
+  background-color: #781c68;
+  color: white;
+}
+
+#logout-btn:hover {
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  /* border-radius: ; */
+}
+
+#all-card-holder {
+  margin: 10px 10%;
+}

@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 import LoginComp from "./Auth/LoginComp";
 import RegisterComp from "./Auth/RegisterComp";
 
 export default function Header(){
+    const {currentUser,logout} = useContext(AuthContext)
     return (
         <header id="header">
             <nav className="container navbar sticky-top navbar-light" id="header--nav">
@@ -12,8 +14,18 @@ export default function Header(){
                     </div>
                     <div className="d-flex">
                         <div className="col">
-                            <LoginComp />
-                            <RegisterComp />
+                            {
+                                (currentUser) ? 
+                                <>
+                                    <div className="btn mx-2" id="user-name">{currentUser.email}</div>
+                                    <div className="btn mx-2" id="logout-btn" onClick={()=>{logout()}}>Logout</div>
+                                </>
+                                :
+                                <>
+                                    <LoginComp />
+                                    <RegisterComp />
+                                </>
+                            }
                         </div>
                     </div>
                 </div>

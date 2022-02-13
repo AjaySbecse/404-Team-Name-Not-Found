@@ -1,12 +1,16 @@
 
 import './App.css';
+import Main from './components/Auction/Main';
 import Header from './components/Header';
+import { AuthProvider } from './context/AuthContext';
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-    </div>
+      <AuthProvider>
+        <Header />
+        <Main />
+      </AuthProvider>
+    
   );
 }
 

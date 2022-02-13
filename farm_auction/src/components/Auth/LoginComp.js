@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useRef } from 'react';
 import { Modal,Button,Form,Alert } from 'react-bootstrap'
+import { AuthContext } from '../../context/AuthContext';
 
 export default function LoginComp() {
     const [showForm, setShowForm] = React.useState(false)
     const [error,setError] = React.useState('')
+
+    const {login} = useContext(AuthContext)
 
     const emailRef = useRef();
     const passRef = useRef();
@@ -14,9 +17,15 @@ export default function LoginComp() {
     function closeForm(){
         setShowForm(false)
     }
-    function submitForm(e){
+    const submitForm = async(e) => {
         e.preventDefault();
         setError('')
+        try {
+            await login(emailRef.current.value,passRef.current.value);
+            closeForm();
+        } catch (error) {
+            setError('Invalid Login Credential')
+        }
         console.log(emailRef.current.value,passRef.current.value)
     }
   return (

@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useRef } from 'react';
 import { Modal,Button,Form,Alert } from 'react-bootstrap'
+import { AuthContext } from '../../context/AuthContext';
 
 export default function RegisterComp() {
     const [showForm, setShowForm] = React.useState(false)
@@ -9,18 +10,32 @@ export default function RegisterComp() {
     const emailRef = useRef();
     const passRef = useRef();
     const cnfpassRef = useRef();
+
+    const {register} = useContext(AuthContext);
+
     function openForm(){
         setShowForm(true);
     }
     function closeForm(){
         setShowForm(false)
     }
-    function submitForm(e){
+    const submitForm = async (e) => {
         e.preventDefault();
         setError('')
         if(passRef.current.value !== cnfpassRef.current.value){
             return setError('Passwords does not match')
         }
+
+        try{
+            await register(emailRef.current.value,passRef.current.value);
+            closeForm();
+        }
+        catch(error){
+            console.log(error)
+            setError(error.message)
+
+        }
+
         console.log(emailRef.current.value,passRef.current.value,cnfpassRef.current.value)
     }
   return (
