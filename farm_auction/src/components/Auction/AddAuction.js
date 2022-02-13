@@ -48,8 +48,8 @@ export const AddAuction = ({ setAuction }) => {
   return (
     <>
       <div className="col d-flex justify-content-center my-3">
-        <div onClick={openForm} className="btn btn-outline-secondary mx-2">
-          + Auction
+        <div onClick={openForm} className="btn btn-outline-secondary mx-2" id='post-auction'>
+          Post an Auction
         </div>
       </div>
       <Modal centered show={showForm} onHide={closeForm}>

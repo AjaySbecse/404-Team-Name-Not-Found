@@ -49,6 +49,24 @@ body {
   /* border-radius: ; */
 }
 
-#all-card-holder {
+/* #all-card-holder {
   margin: 10px 10%;
+} */
+
+#main-body {
+  margin: 10px 10%;
+}
+
+#post-auction {
+  background-color: #9a0680;
+  color: white;
+}
+
+#post-auction:hover {
+  background-color: white;
+  color: #9a0680;
+  border: 1px solid #9a0680;
+}
+#card-items {
+  box-shadow: 5px 5px 10px rgb(190, 186, 186);
 }

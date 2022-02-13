@@ -8,15 +8,14 @@ const renderer = ({days,hours,minutes,seconds,completed,props}) => {
     if(completed){
         return null;
     }
-    console.log(props.item)
     return(
         <div className="col" id='card-holder'>
-            <Card style={{ width: '18rem' }}>
+            <Card style={{ width: '18rem' }} id="card-items">
                 <Card.Img variant="top" src={props.item.imgUrl} style= {{height:'200px'}}/>
                 <Card.Body>
                     <Card.Title>{props.item.title}</Card.Title>
                     <h6>
-                        {days * 24 + hours} hr: {minutes} min: {seconds} sec
+                        {hours} hr: {minutes} min: {seconds} sec
                     </h6>
                     <p className="card-text">{props.item.desc}</p>
                     <div className="d-flex justify-content-between align-item-center">
@@ -36,7 +35,7 @@ const renderer = ({days,hours,minutes,seconds,completed,props}) => {
                         Cancel Auction
                         </div>
                     ) : props.owner.email === props.item.curWinner ? (
-                        <p className="display-6">Winner</p>
+                        <h3>Winner</h3>
                     ) : (
                         <div
                         onClick={() =>
@@ -48,7 +47,7 @@ const renderer = ({days,hours,minutes,seconds,completed,props}) => {
                         </div>
                     )}
                     </div>
-                    <p className="display-6">${props.item.curPrice}</p>
+                    <p className="display-6">{props.item.curPrice}/-</p>
                 </div>
                 </Card.Body>
                 </Card>
@@ -57,10 +56,13 @@ const renderer = ({days,hours,minutes,seconds,completed,props}) => {
 }
 
 export const AuctionCard = ({item}) =>{
+    console.log(item)
     let expiredDate = item.duration;
     const { currentUser,bidAuction,endAuction } = useContext(AuthContext);
-    return <Countdown owner={currentUser}
+    return <Countdown 
+        owner={currentUser}
         date={expiredDate}
+        daysInHours={true}
         bidAuction={bidAuction}
         endAuction={endAuction}
         item={item}

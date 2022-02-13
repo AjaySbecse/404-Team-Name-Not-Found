@@ -24,6 +24,9 @@ export const AuthProvider = ({ children }) => {
     if(!currentUser){
       return setGlobalMsg("Please Login first")
     }
+    
+    
+// The bidding price will be increase by 10%
     let newPrice = Math.floor((price / 100) * 110);
     const db = firestoreApp.collection('auctions');
 
