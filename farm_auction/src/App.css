@@ -4,3 +4,31 @@ body {
   padding: 0px;
   font-family: "Poppins", sans-serif;
 }
+
+#header {
+  background-color: #9a0680;
+}
+
+#header--nav {
+  background-color: #9a0680;
+  color: white;
+}
+.custom-title {
+  color: white;
+  letter-spacing: 2px;
+}
+#title-dot {
+  color: rgb(255, 211, 154);
+  font-size: larger;
+}
+
+#register-btn {
+  background-color: #781c68;
+  color: white;
+}
+#register-btn:hover {
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  /* border-radius: ; */
+}
