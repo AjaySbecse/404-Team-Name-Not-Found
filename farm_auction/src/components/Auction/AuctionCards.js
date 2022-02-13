@@ -15,7 +15,7 @@ const renderer = ({days,hours,minutes,seconds,completed,props}) => {
                 <Card.Body>
                     <Card.Title>{props.item.title}</Card.Title>
                     <h6>
-                        {hours} hr: {minutes} min: {seconds} sec
+                        {(days == 6)?hours - 18:hours-3} hr: {minutes} min: {seconds} sec
                     </h6>
                     <p className="card-text">{props.item.desc}</p>
                     <div className="d-flex justify-content-between align-item-center">
@@ -61,10 +61,10 @@ export const AuctionCard = ({item}) =>{
     const { currentUser,bidAuction,endAuction } = useContext(AuthContext);
     return <Countdown 
         owner={currentUser}
-        date={expiredDate}
-        daysInHours={true}
+        date= {expiredDate}
         bidAuction={bidAuction}
         endAuction={endAuction}
         item={item}
-    renderer={renderer} />;
+        renderer={renderer}
+     />;
 }

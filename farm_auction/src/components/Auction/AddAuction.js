@@ -27,11 +27,17 @@ export const AddAuction = ({ setAuction }) => {
       return setError('Please use a valid image');
     }
 
+    if(startPrice.current.value <= 0){
+        return setError('Price must be greater than zero');
+    }
+    if(itemDuration.current.value <=0){
+        return setError('Duration must be greater than zero');
+    }
+
     let currentDate = new Date();
     let dueDate = currentDate.setHours(
       currentDate.getHours() + itemDuration.current.value
     );
-
     let newAuction = {
       email: currentUser.email,
       title: itemTitle.current.value,
