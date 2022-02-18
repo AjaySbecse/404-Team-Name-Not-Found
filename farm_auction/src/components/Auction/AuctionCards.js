@@ -4,9 +4,9 @@ import { Card,Button } from 'react-bootstrap';
 import { AuthContext } from '../../context/AuthContext';
 import { useContext } from 'react';
 
-const renderer = ({days,hours,minutes,seconds,completed,props}) => {
+const renderer = ({hours,minutes,seconds,completed,props}) => {
     if(completed){
-        return null;
+        return <h1>Auction completed</h1>;
     }
     return(
         <div className="col" id='card-holder'>
@@ -15,7 +15,7 @@ const renderer = ({days,hours,minutes,seconds,completed,props}) => {
                 <Card.Body>
                     <Card.Title>{props.item.title}</Card.Title>
                     <h6>
-                        {(days == 6)?hours - 18:hours-3} hr: {minutes} min: {seconds} sec
+                        {hours} hr: {minutes} min: {seconds} sec
                     </h6>
                     <p className="card-text">{props.item.desc}</p>
                     <div className="d-flex justify-content-between align-item-center">
@@ -56,8 +56,8 @@ const renderer = ({days,hours,minutes,seconds,completed,props}) => {
 }
 
 export const AuctionCard = ({item}) =>{
-    console.log(item)
     let expiredDate = item.duration;
+    // console.log("The document is created at ",item.createdAt.seconds)
     const { currentUser,bidAuction,endAuction } = useContext(AuthContext);
     return <Countdown 
         owner={currentUser}

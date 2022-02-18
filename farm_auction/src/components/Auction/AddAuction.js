@@ -34,10 +34,8 @@ export const AddAuction = ({ setAuction }) => {
         return setError('Duration must be greater than zero');
     }
 
-    let currentDate = new Date();
-    let dueDate = currentDate.setHours(
-      currentDate.getHours() + itemDuration.current.value
-    );
+    let dueDate = Date.now() + (itemDuration.current.value * 1000 * 60 * 60)
+    console.log("The due date is : ",dueDate)
     let newAuction = {
       email: currentUser.email,
       title: itemTitle.current.value,
