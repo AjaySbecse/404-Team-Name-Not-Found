@@ -3,14 +3,17 @@ import Countdown from 'react-countdown';
 import { Card,Button } from 'react-bootstrap';
 import { AuthContext } from '../../context/AuthContext';
 import { useContext } from 'react';
+import FinishAuction from './FinishAuction';
 
 const renderer = ({hours,minutes,seconds,completed,props}) => {
     if(completed){
-        return <h1>Auction completed</h1>;
+        console.log(props)
+        return <FinishAuction props={props} />
     }
     return(
         <div className="col" id='card-holder'>
             <Card style={{ width: '18rem' }} id="card-items">
+
                 <Card.Img variant="top" src={props.item.imgUrl} style= {{height:'200px'}}/>
                 <Card.Body>
                     <Card.Title>{props.item.title}</Card.Title>
@@ -23,16 +26,16 @@ const renderer = ({hours,minutes,seconds,completed,props}) => {
                     {!props.owner ? (
                         <div
                         onClick={() => props.bidAuction()}
-                        className="btn btn-outline-secondary"
+                        className="change-btn-color"
                         >
                         Bid
                         </div>
                     ) : props.owner.email === props.item.email ? (
                         <div
                         onClick={() => props.endAuction(props.item.id)}
-                        className="btn btn-outline-secondary"
+                        className="change-btn-color"
                         >
-                        Cancel Auction
+                        Cancel
                         </div>
                     ) : props.owner.email === props.item.curWinner ? (
                         <h3>Winner</h3>
@@ -41,7 +44,7 @@ const renderer = ({hours,minutes,seconds,completed,props}) => {
                         onClick={() =>
                             props.bidAuction(props.item.id, props.item.curPrice)
                         }
-                        className="btn btn-outline-secondary"
+                        className="change-btn-color"
                         >
                         Bid
                         </div>

@@ -38,7 +38,6 @@ export const AuthProvider = ({ children }) => {
 
   const endAuction = (auctionId) => {
     const db = firestoreApp.collection('auctions');
-
     return db.doc(auctionId).delete();
   };
 

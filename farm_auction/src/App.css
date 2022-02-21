@@ -67,6 +67,59 @@ body {
   color: #9a0680;
   border: 1px solid #9a0680;
 }
-#card-items {
+
+.change-btn-color {
+  background-color: #9a0680;
+  color: white;
+  padding: 4px 13px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 10px;
+}
+
+.change-btn-color:hover {
+  background-color: white;
+  border: 1px solid #9a0680;
+  color: #9a0680;
+}
+
+.submit-btn {
+}
+
+#card-items,
+#finished-card-items {
   box-shadow: 5px 5px 10px rgb(190, 186, 186);
+}
+
+.final-price,
+.winner-announce {
+  font-size: 20px;
+}
+
+.final-price > strong {
+  color: #9a0680;
+}
+
+.winner-announce > strong {
+  color: #9a0680;
+}
+
+#finished-card-items {
+  position: relative;
+}
+
+.sold-out {
+  position: absolute;
+  height: 30px;
+  width: 30%;
+  background-color: red;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0px;
+  right: 0px;
+  font-weight: bold;
+  border-radius: 0px 0px 0px 8px;
 }
