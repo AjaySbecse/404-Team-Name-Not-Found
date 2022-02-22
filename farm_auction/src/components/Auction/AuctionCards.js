@@ -11,8 +11,8 @@ const renderer = ({hours,minutes,seconds,completed,props}) => {
         return <FinishAuction props={props} />
     }
     return(
-        <div className="col" id='card-holder'>
-            <Card style={{ width: '18rem' }} id="card-items">
+        <div className="col custom-col-item" id='card-holder'>
+            <Card style={{ width: '18rem',margin:'auto'}} id="card-items">
 
                 <Card.Img variant="top" src={props.item.imgUrl} style= {{height:'200px'}}/>
                 <Card.Body>

@@ -17,7 +17,7 @@ export default function Header(){
                             {
                                 (currentUser) ? 
                                 <>
-                                    <div className="btn mx-2" id="user-name">{currentUser.email}</div>
+                                    <div className="btn  mx-2" id="user-name">{currentUser.email}</div>
                                     <div className="btn mx-2" id="logout-btn" onClick={()=>{logout()}}>Logout</div>
                                 </>
                                 :

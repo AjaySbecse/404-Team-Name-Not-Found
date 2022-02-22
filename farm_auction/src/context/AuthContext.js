@@ -22,7 +22,7 @@ export const AuthProvider = ({ children }) => {
 
   const bidAuction = (auctionId, price) => {
     if(!currentUser){
-      return setGlobalMsg("Please Login first")
+      return setGlobalMsg("Please Login to bid the price")
     }
     
     

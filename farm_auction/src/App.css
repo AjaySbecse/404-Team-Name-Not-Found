@@ -16,6 +16,7 @@ body {
 .custom-title {
   color: white;
   letter-spacing: 2px;
+  margin: 0px auto;
 }
 #title-dot {
   color: rgb(255, 211, 154);
@@ -84,9 +85,6 @@ body {
   color: #9a0680;
 }
 
-.submit-btn {
-}
-
 #card-items,
 #finished-card-items {
   box-shadow: 5px 5px 10px rgb(190, 186, 186);
@@ -122,4 +120,7 @@ body {
   right: 0px;
   font-weight: bold;
   border-radius: 0px 0px 0px 8px;
+}
+
+.custom-col-item {
 }

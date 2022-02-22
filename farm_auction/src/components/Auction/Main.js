@@ -18,7 +18,7 @@ export default function Main() {
         {(globalMsg) && <Alert varient="info"><b>{globalMsg}</b></Alert>}      
 
         {(docs) && 
-            <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id='all-card-holder'>
+            <div className="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 g-3 " id='all-card-holder'>
                 {docs.map((doc) => {
                 return <AuctionCard item={doc} key={doc.id} />;
                 })}
