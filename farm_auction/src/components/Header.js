@@ -13,11 +13,12 @@ export default function Header(){
                         <h1 className="custom-title">Farm Auction<span id="title-dot">.</span></h1>
                     </div>
                     <div className="d-flex">
-                        <div className="col">
+                        <div className="col text-center">
                             {
                                 (currentUser) ? 
                                 <>
-                                    <div className="btn  mx-2" id="user-name">{currentUser.email}</div>
+                                    <div className="btn mx-2" id="dashboard" > Dashboard</div>
+                                    <div className="btn mx-2" id="user-name">{currentUser.email}</div>
                                     <div className="btn mx-2" id="logout-btn" onClick={()=>{logout()}}>Logout</div>
                                 </>
                                 :
